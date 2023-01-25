@@ -6,6 +6,7 @@ const authRoutes = require('./routes/authRoutes.js')
 const todoRoutes = require('./routes/todoRoutes.js')
 const cookieParser = require("cookie-parser")
 const path = require('path')
+const PORT = process.env.PORT || 3001
 
 app.use(express.static(__dirname + "/public"))
 app.use(express.urlencoded({ extended: false }))
@@ -29,6 +30,6 @@ app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname + '/public', 'index.html'));
 });
 
-app.listen(3001, () => {
-    console.log("Server Started")
+app.listen(PORT, () => {
+    console.log(`Server listening on ${PORT}`)
 })
